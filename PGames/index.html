@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PGames</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    cursor: url("cursor.png") 0 0, auto;
+}
+
+/* ===== BANNER ===== */
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 15px 30px;
+    border-bottom: 2px solid #ff3c00;
+}
+
+.logo img {
+    height: 50px;
+    transform: scale(2);
+    transform-origin: left center;
+}
+
+/* DERECHA */
+.right {
+    display: flex;
+    gap: 10px;
+}
+
+.search {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+.btn {
+    background: #1e1e1e;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+/* CONTENEDOR */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* ===== CARD JUEGO ===== */
+.game {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #1a1a1a;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    border-left: 4px solid #ff3c00;
+}
+
+.game img {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.game:hover {
+    background: #222;
+    transform: scale(1.02);
+}
+
+.game-title {
+    font-size: 18px;
+}
+
+#noResult {
+    display: none;
+    color: #ff3c00;
+}
+
+.light {
+    background: #f2f2f2;
+    color: black;
+}
+
+.light .game {
+    background: #ddd;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+    <div class="logo">
+        <img src="logo.png">
+    </div>
+
+    <div class="right">
+        <input class="search" placeholder="Buscar..." onkeyup="buscarJuego()">
+        <button class="btn" onclick="toggleTheme()">Tema</button>
+        <button class="btn">Categorías</button>
+    </div>
+</div>
+
+<div class="container">
+
+<a class="game" href="https://gofile.io/d/tue0kt" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/739630/header.jpg">
+    <div class="game-title">PHASMOPHOBIA</div>
+</a>
+
+<a class="game" href="https://drive.marketcat.io/drive/s/1lXKYDBHaRMjfsnIi0OJxeGiToDwZ0" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg">
+    <div class="game-title">RESIDENT EVIL 4 REMAKE</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/0412bn6oul1ry1e/EASp26ortsF26C26-elamigos.part01.rar/file" target="_blank">
+    <img src="https://media.es.wired.com/photos/6880fadda69582ec829f6bca/3:2/w_1620,h_1080,c_limit/ea-sports-fc-26-Cover.jpg">
+    <div class="game-title">EA SPORTS FC 2026</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/11t4dp31bywcy9m/Th4eS4im44s4-1.121.361-elamigos.part01.rar/file" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/header.jpg">
+    <div class="game-title">THE SIMS 4</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/5996l6c5f0ytqaq/Rea3dyoN9ot-112610-elamigos.part1.rar/file" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/header.jpg">
+    <div class="game-title">READY OR NOT</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/rlruufwnsk6frzn/Project.Zomboid.v43.15.3-0xdeadcode.zip/file" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/108600/header.jpg">
+    <div class="game-title">PROJECT ZOMBOID</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/uy3o764lga8hdyu/Hol2lowKSilk2song-1.0.29315-elamigos.rar/file" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg">
+    <div class="game-title">HOLLOW KNIGHT SILKSONG</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/22pr5qvusrasdrb/Hol4lowKni7ght-1.5.12459-elamigos.rar/file" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg">
+    <div class="game-title">HOLLOW KNIGHT</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/qk6a5twilebjr7u/Dyin8gLi0ghtTBea1st-1.6.0-elamigos.part01.rar/file" target="_blank">
+    <img src="https://img.asmedia.epimg.net/resizer/v2/YTV6V3FJGRCRPCUWIG5P346LYY.jpg?auth=53637815cac7c9dedbaad1ba3898d6b08c3681a3dde7b98120bd51f3cb3947fd&width=1472&height=1104&smart=true">
+    <div class="game-title">DYING LIGHT THE BEAST</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/c2i6gr57avk3avy/Hytale.Build.26032026-0xdeadcode.zip/file" target="_blank">
+    <img src="https://img.youtube.com/vi/o77MzDQT1cg/maxresdefault.jpg">
+    <div class="game-title">HYTALE</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/0erefwwfe50ywt3" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1966720/header.jpg">
+    <div class="game-title">LETHAL COMPANY</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/7clkwtq0cftoxu3/Into.the.Dead.Our.Darkest.Days.v0.12.2.18415.Early.Access.zip/file" target="_blank">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2239710/d6d99b4fc081c03a808dbf5d5a0504f6cc968dda/capsule_616x353.jpg?t=1773783150">
+    <div class="game-title">INTO THE DEAD: OUR DARKEST DAYS</div>
+</a>
+
+<a class="game" href="https://www.mediafire.com/file/0g9cj8t96qupteh/Sup3erMe3atBoy3D-elamigos.rar/file" target="_blank">
+    <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_400/store/software/switch2/70010000118233/cede6044feaac50e56f3b8f70eee2c9376d215f39d405bedf696aeb108e2fb4d">
+    <div class="game-title">SUPER MEAT BOY 3D</div>
+</a>
+
+<a class="game" href="https://mega.nz/#!6YkgHQrA!DsXACDr8Kp3m-zDl7Pp0_M9vShWfr3zrun6bGqTZ0sE" target="_blank">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/40800/header.jpg">
+    <div class="game-title">SUPER MEAT BOY</div>
+</a>
+
+<p id="noResult">❌ No encontrado</p>
+
+</div>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("light");
+}
+
+function limpiarTexto(texto) {
+    return texto.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function buscarJuego() {
+    let input = document.querySelector(".search").value;
+    let filtro = limpiarTexto(input);
+
+    let juegos = document.querySelectorAll(".game");
+    let encontrado = false;
+
+    juegos.forEach(juego => {
+        let texto = limpiarTexto(juego.innerText);
+
+        if (texto.includes(filtro)) {
+            juego.style.display = "flex";
+            encontrado = true;
+        } else {
+            juego.style.display = "none";
+        }
+    });
+
+    document.getElementById("noResult").style.display = encontrado ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
